@@ -1,0 +1,15 @@
+{
+  "name": "linear-diffs-firefox",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Firefox extension that opens GitHub pull requests in Linear Diffs.",
+  "scripts": {
+    "test": "node --test",
+    "lint": "web-ext lint",
+    "build": "web-ext build --overwrite-dest",
+    "sign": "web-ext sign --channel=unlisted"
+  },
+  "devDependencies": {
+    "web-ext": "^9.2.0"
+  }
+}

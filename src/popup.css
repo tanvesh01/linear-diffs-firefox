@@ -1,0 +1,183 @@
+:root {
+  color-scheme: light dark;
+  --bg: #f6f5f3;
+  --card: #ffffff;
+  --text: #1c1b22;
+  --muted: #5e5c66;
+  --line: #e4e1da;
+  --accent: #3d3a8c;
+  --accent-text: #ffffff;
+  --track-off: #d5d2cb;
+  --focus: #3d3a8c;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #141416;
+    --card: #1e1e22;
+    --text: #f3f1ea;
+    --muted: #b0aea6;
+    --line: #323238;
+    --accent: #c4c1f5;
+    --accent-text: #1c1b22;
+    --track-off: #3a3a40;
+    --focus: #c4c1f5;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  width: 320px;
+  background: var(--bg);
+  color: var(--text);
+  font: 14px/1.4 "Segoe UI", system-ui, sans-serif;
+}
+
+main {
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+}
+
+header h1,
+header p,
+.setting-copy p,
+#context-name,
+.hint {
+  margin: 0;
+}
+
+header h1 {
+  font-size: 16px;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+header p,
+.hint,
+#status,
+#context-name {
+  color: var(--muted);
+}
+
+header p,
+.hint,
+#status {
+  font-size: 12px;
+}
+
+.setting,
+#context {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.setting {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px;
+}
+
+.setting-copy label {
+  display: block;
+  font-weight: 600;
+}
+
+.setting-copy p {
+  margin-top: 2px;
+}
+
+.switch {
+  flex: 0 0 auto;
+  width: 40px;
+  height: 24px;
+  margin: 0;
+  border-radius: 999px;
+  appearance: none;
+  background: var(--track-off);
+  cursor: pointer;
+  position: relative;
+}
+
+.switch::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 120ms ease;
+}
+
+.switch:checked {
+  background: var(--accent);
+}
+
+.switch:checked::after {
+  transform: translateX(16px);
+}
+
+.switch:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+#context {
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+}
+
+#context[hidden] {
+  display: none;
+}
+
+#context-name {
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+button {
+  border: 0;
+  border-radius: 999px;
+  padding: 8px 12px;
+  background: var(--accent);
+  color: var(--accent-text);
+  font: inherit;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.hint {
+  padding: 0 2px 2px;
+}
+
+kbd,
+code {
+  font: 11px/1 ui-monospace, "SFMono-Regular", Consolas, monospace;
+}
+
+kbd {
+  padding: 0 4px;
+  border: 1px solid var(--line);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  background: var(--card);
+}

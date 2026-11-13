@@ -1,0 +1,55 @@
+{
+  "manifest_version": 3,
+  "name": "GitHub PRs in Linear Diffs",
+  "version": "1.0.0",
+  "description": "Opens GitHub pull requests in Linear Diffs. Unofficial — not affiliated with Linear.",
+  "author": "Tanvesh Sarve",
+  "homepage_url": "https://github.com/tanvesh01/linear-diffs-firefox",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "github-prs-linear-diffs@tanvesh01.github.io",
+      "strict_min_version": "140.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    },
+    "gecko_android": {
+      "strict_min_version": "142.0"
+    }
+  },
+  "permissions": ["declarativeNetRequestWithHostAccess", "storage", "webNavigation", "activeTab"],
+  "host_permissions": ["*://github.com/*"],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "github-pull-requests",
+        "enabled": true,
+        "path": "rules/github-pull-requests.json"
+      }
+    ]
+  },
+  "background": {
+    "scripts": ["src/redirect.js", "src/background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://github.com/*"],
+      "js": ["src/redirect.js", "src/content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "action": {
+    "default_title": "GitHub PRs in Linear Diffs",
+    "default_popup": "src/popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  }
+}

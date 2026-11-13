@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GitHub PRs in Linear Diffs</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Linear Diffs</h1>
+        <p>Unofficial GitHub redirect</p>
+      </header>
+
+      <div class="setting">
+        <div class="setting-copy">
+          <label for="enabled">Open pull requests in Linear</label>
+          <p id="status" role="status"></p>
+        </div>
+        <input id="enabled" class="switch" type="checkbox" role="switch" aria-describedby="status" />
+      </div>
+
+      <section id="context" hidden>
+        <p id="context-name"></p>
+        <button id="context-action" type="button"></button>
+      </section>
+
+      <p class="hint">
+        Hold <kbd>Alt</kbd> (<kbd>Option</kbd> on macOS) while clicking a pull request to open it on GitHub once.
+        <code>?from=linear</code> does the same for a pasted URL.
+      </p>
+    </main>
+    <script src="redirect.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
