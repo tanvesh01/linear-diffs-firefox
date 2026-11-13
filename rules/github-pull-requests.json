@@ -1,0 +1,111 @@
+[
+  {
+    "id": 1,
+    "priority": 2,
+    "action": {
+      "type": "allow"
+    },
+    "condition": {
+      "regexFilter": "^https?://github\\.com/[^?#]*[?]([^#]*&)?from=linear(&|#|$)",
+      "resourceTypes": [
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "regexSubstitution": "https://linear.app/review/\\1/\\2/pull/\\3/changes?from=github"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://github\\.com/([A-Za-z0-9_-]+)/([A-Za-z0-9_.-]+)/pull/([1-9][0-9]*)/files/?([?#].*)?$",
+      "isUrlFilterCaseSensitive": false,
+      "resourceTypes": [
+        "main_frame"
+      ],
+      "requestMethods": [
+        "get"
+      ],
+      "excludedInitiatorDomains": [
+        "linear.app",
+        "linear.review"
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "regexSubstitution": "https://linear.app/review/\\1/\\2/pull/\\3?from=github"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://github\\.com/([A-Za-z0-9_-]+)/([A-Za-z0-9_.-]+)/pull/([1-9][0-9]*)/commits/?([?#].*)?$",
+      "isUrlFilterCaseSensitive": false,
+      "resourceTypes": [
+        "main_frame"
+      ],
+      "requestMethods": [
+        "get"
+      ],
+      "excludedInitiatorDomains": [
+        "linear.app",
+        "linear.review"
+      ]
+    }
+  },
+  {
+    "id": 4,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "regexSubstitution": "https://linear.app/review/\\1/\\2/pull/\\3?from=github"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://github\\.com/([A-Za-z0-9_-]+)/([A-Za-z0-9_.-]+)/pull/([1-9][0-9]*)/checks/?([?#].*)?$",
+      "isUrlFilterCaseSensitive": false,
+      "resourceTypes": [
+        "main_frame"
+      ],
+      "requestMethods": [
+        "get"
+      ],
+      "excludedInitiatorDomains": [
+        "linear.app",
+        "linear.review"
+      ]
+    }
+  },
+  {
+    "id": 5,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "regexSubstitution": "https://linear.app/review/\\1/\\2/pull/\\3?from=github"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://github\\.com/([A-Za-z0-9_-]+)/([A-Za-z0-9_.-]+)/pull/([1-9][0-9]*)/?([?#].*)?$",
+      "isUrlFilterCaseSensitive": false,
+      "resourceTypes": [
+        "main_frame"
+      ],
+      "requestMethods": [
+        "get"
+      ],
+      "excludedInitiatorDomains": [
+        "linear.app",
+        "linear.review"
+      ]
+    }
+  }
+]
